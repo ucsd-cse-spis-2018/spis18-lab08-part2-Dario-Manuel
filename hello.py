@@ -39,16 +39,19 @@ def render_ctof_result():
 @app.route('/mtokm_result')
 def render_mtokm_result():
     try:
-        # You'll need some code here, and maybe some extra parameters in render_template below...
-        return render_template('mtokm.html')
+        mdist_result = float(request.args['mDist'])
+        kmdist_result = mtokm(mdist_result)
+        return render_template('mtokm_result.html', mDist=mdist_result, kmDist=kmdist_result)
     except ValueError:
         return "Sorry: something went wrong."
 
 def hello():
-    return "Whats Up!"
+    return "What's Up!"
 def ftoc(ftemp):
     return (ftemp-32.0)*(5.0/9.0)
-def mtok(mdist):
+def ctof(ctemp):
+    return (ctemp*(9/5)) + 32
+def mtokm(mdist):
     return (mdist * 1.61)
 if __name__ == "__main__":
     app.run(port=5000, debug = False)

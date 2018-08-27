@@ -4,6 +4,13 @@
 
 {%  block content %}
 
-<p>Coming soon...</p>
+<p>Insert a mile and click "submit" to convert to kilometers</p>
+
+
+<form action="/mtokm_result">
+    Miles Distance:<br>
+    <input type="text" name="mDist" value="10.0">
+    <input type="submit" value="Submit">
+</form>
 
 {%  endblock %}
